@@ -1,0 +1,29 @@
+
+<!-- Bind (Exibir dados Typescript no HTML) -->
+<h1 *ngIf='visivel'>{{frase}}</h1>
+
+<!-- -->
+<button (click)='acao()'>Visibilidade da frase</button>
+
+<!-- Diretiva -->
+
+<ol>
+  <li *ngFor='let nomeDoCurso of cursos;'>{{nomeDoCurso}}</li>
+</ol>
+
+<hr>
+
+<table>
+  <tr *ngFor='let c of clientes; let indice = index'>
+    <td>{{indice+1}}</td>
+    <td>{{c.nome}}</td>
+    <td>{{c.idade}}</td>
+  </tr>
+</table>
+
+<hr>
+
+<!-- FormControl -->
+<input type="text" placeholder="Informe algo" [formControl] ="texto">
+
+<p>{{texto.value}}</p>

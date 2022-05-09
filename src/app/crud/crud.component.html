@@ -1,0 +1,40 @@
+<!-- Componente conceitos -->
+<!-- <app-conceitos></app-conceitos> -->
+
+<form [formGroup]="formulario">
+    <div *ngIf="alerta">
+        <div class="alert alert-success" [ngClass]="corAlerta">{{txtAlerta}}</div>
+    </div>
+    <input type="text" placeholder="Nome"    formControlName='nome'   class="form-control">
+    <input type="text" placeholder="Cidade"  formControlName='cidade'   class="form-control">
+    <input type="text" placeholder="E-mail"  formControlName='email'   class="form-control">
+
+    <input type="button" value="Cadastrar"    *ngIf="btnCadastrar"  (click)="cadastrar()"   class="btn btn-primary">
+    <input type="button" value="Alterar"      *ngIf="!btnCadastrar" (click)="alterar()"     class="btn btn-success">
+    <input type="button" value="Remover"      *ngIf="!btnCadastrar" (click)="remover()"     class="btn btn-danger">
+    <input type="button" value="Cancelar"     *ngIf="!btnCadastrar" (click)="limpaCampos()" class="btn btn-secondary">
+
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Cidade</th>
+            <th>E-mail</th>
+            <th>Selecionar dados</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let d of dados; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{d.nome}}</td>
+            <td>{{d.cidade}}</td>
+            <td>{{d.email}}</td>
+            <td><button (click)="selecionar(i)"class="btn btn-info">Selecionar</button></td>
+        </tr>
+    </tbody>
+    
+</table>
